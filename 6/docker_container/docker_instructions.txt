@@ -1,0 +1,69 @@
+Docker Instructions:
+Make sure you download Docker. 
+
+Docker desktop for windows - 
+https://docs.docker.com/docker-for-windows/
+https://docs.microsoft.com/en-gb/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
+
+Windows:
+You may have to download Docker Toolbox instead of Docker Desktop (do try this first - links mentioned above) if you run Windows and do not have Windows 10 Pro.
+https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.ex
+This will also download VirtualBox if you do not have it.
+
+Important!!:
+
+Make sure you move your cacti65 folder to your C:/Users/your_user/*
+Open Docker QuickStart Terminal
+
+Mac:
+Open a terminal after you download you kings
+
+
+Steps:
+
+1. Go to your cacti65 folder, and open cacti.mk:
+
+Replace lines 24-25 with
+CXX = g++ -m64
+CC  = gcc -m64
+
+2. Download Dockerfile from Files. Make sure you move this to somewhere inside C:/Users/your_user/* as well!
+
+3. Open terminal and run:
+
+mkdir docker_cactilab && mv Dockerfile docker_cactilab && cd docker_cactilab
+
+docker build -t cactilab_image . (if it takes a while, hit enter lol, not sure why)
+
+cd (path to cacti65 folder)
+	- You may get a invalid reference format error here
+	- Please cd to your C: drive instead
+
+docker run -itv $(pwd):/home/ --name cactilab_container cactilab_image
+
+(Should launch Docker container and home folder should map to the folder you were in before)
+
+cd home
+	- So, here if you are not in your cacti65 folder, please cd to it after you cd home
+
+make
+
+4. cacti should be built! Now run the lab assignment according to the instructions
+
+5. After you are done, run:
+
+exit
+
+6. To restart the container, run:
+
+docker start -i cactilab_container
+
+Please post on Piazza if you have problems/questions. Feel free to also Google your problems - most issues regarding docker installation can be resolved easily :)
+
+
+
+
+
+
+
+

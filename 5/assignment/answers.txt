@@ -1,0 +1,57 @@
+ECE 3058
+Thread Scheduling Lab
+
+Name: James Root
+GT Username: jroot30
+
+*** NOTE: all answers gathered from gatech ece-linlabsrv01 ***
+
+Problem 1B
+----------
+Total execution time:
+    1 CPU:  67.6 s
+    2 CPU:  35.8 s
+    4 CPU:  33.0 s
+As you can see, we have a much larger execution time reduction from 1 CPU to 2 CPUs (~ 31.8 s) 
+used as compared to the reduction from 2 CPUs to 4 CPUs (~ 1.8 s). This occurs since the number of 
+CPUs available is more of a limiting factor at 1 CPU while the I/O is the main limitig factor 
+for 2 & 4 CPUs.
+
+Problem 2B
+----------
+*** NOTE: One CPU running for each simulation ***
+800 ms: 
+    Execution Time:      67.6 s
+    Ready State Time:   325.1 s
+600 ms: 
+    Execution Time:      67.6 s
+    Ready State Time:   314.5 s
+400 ms: 
+    Execution Time:      67.6 s
+    Ready State Time:   298.8 s
+200 ms: 
+    Execution Time:      67.5 s
+    Ready State Time:   285.2 s
+Note Execution time stays consistent across time slices. However, ready state time decreases
+as time slices increase. In this simulated situation a lower time slice is more advantageous, 
+however, it is important to consider hardware limitations through clock cycles as these time
+slices decreace.
+
+Problem 3B
+----------
+B.1: 
+    In an actual simulation, we usually are not given the amount of time it takes to complete 
+    a program as different cpu instructions may take longer due to flushing, etc. Though we 
+    cannot get exact times for each process to complete, we can approximate them based upon 
+    different statistics (# of instructions, etc.).
+
+B.2:
+*** NOTE both scheduling algs run on one CPU ***
+FIFO System:
+    Time spent in READY state:  389.9 s
+LTRF System:
+    Time spent in READY state:  297.5 s
+We can observe a significantly lower wait time in the LTRF system as compared to the FIFO system. 
+One reason that the LRTF system is more efficient is that it reduces starvation more than the
+standard FIFO system does.
+
